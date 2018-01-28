@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">音乐</string>
+    <string name="unknown_Music">未知歌曲</string>
+    <string name="title_activity_lyric">LyricActivity</string>
+</resources>

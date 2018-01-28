@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?android:attr/colorBackground">
+
+    <ImageView
+        android:id="@+id/play_bar_image"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="4dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/default_cover" />
+
+    <TextView
+        android:id="@+id/play_bar_music_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="无音乐"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/play_bar_music_artist"
+        app:layout_constraintEnd_toStartOf="@+id/play_bar_button_previous"
+        app:layout_constraintStart_toEndOf="@+id/play_bar_image"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/play_bar_music_artist"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="无"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@+id/play_bar_image"
+        app:layout_constraintEnd_toStartOf="@+id/play_bar_button_previous"
+        app:layout_constraintStart_toEndOf="@+id/play_bar_image"
+        app:layout_constraintTop_toBottomOf="@+id/play_bar_music_name" />
+
+    <ImageButton
+        android:id="@+id/play_bar_button_play"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginBottom="4dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="4dp"
+        android:background="?android:attr/colorBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/play_bar_button_next"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_media_play" />
+
+    <ImageButton
+        android:id="@+id/play_bar_button_next"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginBottom="4dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="4dp"
+        android:background="?android:attr/colorBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_media_next" />
+
+    <ImageButton
+        android:id="@+id/play_bar_button_previous"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginBottom="4dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginTop="4dp"
+        android:background="?android:attr/colorBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/play_bar_button_play"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_media_previous" />
+
+    <ProgressBar
+        android:id="@+id/music_progress_bar"
+        style="@android:style/Widget.Material.ProgressBar.Horizontal"
+        android:layout_width="0dp"
+        android:layout_height="3dp"
+        android:background="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</android.support.constraint.ConstraintLayout>
