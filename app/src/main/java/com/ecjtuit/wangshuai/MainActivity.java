@@ -22,7 +22,6 @@ import android.widget.TextView;
 import com.ecjtuit.wangshuai.adapter.MusicListAdapter;
 import com.ecjtuit.wangshuai.data.GetMusicInfos;
 import com.ecjtuit.wangshuai.data.Music;
-import com.ecjtuit.wangshuai.module.lyric.LyricActivity;
 import com.ecjtuit.wangshuai.module.lyric.SearchLyric;
 import com.ecjtuit.wangshuai.service.MusicPlayService;
 import com.ecjtuit.wangshuai.util.ItemClickListener;
@@ -154,8 +153,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 previous();
                 break;
             case R.id.play_bar_image:
-                Intent intent = new Intent(this, LyricActivity.class);
-                startActivity(intent);
+//                Intent intent = new Intent(this, LyricActivity.class);
+//                startActivity(intent);
             case R.id.text_local_music:
                 titleLocalMusic.setTextSize(20);
                 titleOnlineMusic.setTextSize(18);
