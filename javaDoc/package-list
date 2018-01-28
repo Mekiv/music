@@ -1,3 +1,7 @@
 com.ecjtuit.wangshuai
 com.ecjtuit.wangshuai.adapter
 com.ecjtuit.wangshuai.data
+com.ecjtuit.wangshuai.module.lyric
+com.ecjtuit.wangshuai.service
+com.ecjtuit.wangshuai.util
+com.ecjtuit.wangshuai.util.netease
