@@ -1,6 +1,6 @@
-         package com.ecjtuit.wangshuai.module.lyric;
+package com.ecjtuit.wangshuai.module.lyric;
 
-         import android.content.Context;
+import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.os.Handler;
