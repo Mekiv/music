@@ -13,42 +13,10 @@ import okhttp3.internal.cache.DiskLruCache;
 
 
 /**
- * @ClassName
- * @Description 解析歌词实现类
- * @Author Xiaoborui
- * @Date 2016/10/28 09:50
+ * Created by Mekiv on 2018/1/26.
  */
 
 public class LyricParser  {
-//    @Override
-//    public void saveLyrics(List<Lyric> Lyrics, String key){
-//        if(Lyrics == null || Lyrics.size() == 0)
-//            return;
-//        DiskLruCache.Editor editor;
-//        OutputStream lrcCacheStream = null;
-//        try {
-//            editor = DiskCache.getLrcDiskCache().edit(Util.hashKeyForDisk(key));
-//            lrcCacheStream = editor.newOutputStream(0);
-////            for(Lyric Lyric : Lyrics){
-////                lrcCacheStream.write((Lyric + "\n").getBytes());
-////            }
-//            lrcCacheStream.write(new Gson().toJson(Lyrics,new TypeToken<List<Lyric>>(){}.getType()).getBytes());
-//            lrcCacheStream.flush();
-//            editor.commit();
-//
-//            DiskCache.getLrcDiskCache().flush();
-//        }catch (Exception e){
-//
-//        } finally {
-//            try {
-//                if(lrcCacheStream != null)
-//                    lrcCacheStream.close();
-//            }catch (Exception e){
-//
-//            }
-//        }
-//
-//    }
 
     public List<Lyric> getLyrics(BufferedReader bufferedReader) {
         if(bufferedReader == null) {
@@ -79,19 +47,6 @@ public class LyricParser  {
                 Lyrics.get(i).setTotalTime(Lyrics.get(i + 1).getTime() - Lyrics.get(i).getTime());
             }
             Lyrics.get(Lyrics.size() - 1).setTotalTime(5000);
-//            if (needCache ) {
-//                editor = DiskCache.getLrcDiskCache().edit(this.hashKeyForDisk(songName + "/" + artistName));
-//                if(editor != null)
-//                    lrcCacheStream = editor.newOutputStream(0);
-//                if(lrcCacheStream != null){
-//                    lrcCacheStream.write(new Gson().toJson(Lyrics,new TypeToken<List<Lyric>>(){}.getType()).getBytes());
-//                    lrcCacheStream.flush();
-//                }
-//                if (editor != null) {
-//                    editor.commit();
-//                }
-//                DiskCache.getLrcDiskCache().flush();
-//            }
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -108,30 +63,6 @@ public class LyricParser  {
                 e.printStackTrace();
             }
         }
-//        public static String hashKeyForDisk(String key) {
-//            String cacheKey;
-//            try {
-//                final MessageDigest mDigest = MessageDigest.getInstance("MD5");
-//                mDigest.update(key.getBytes());
-//                cacheKey = bytesToHexString(mDigest.digest());
-//            } catch (NoSuchAlgorithmException e) {
-//                cacheKey = String.valueOf(key.hashCode());
-//            }
-//            return cacheKey;
-//        }
-//
-//        public static String bytesToHexString(byte[] bytes) {
-//            StringBuilder sb = new StringBuilder();
-//            for (int i = 0; i < bytes.length; i++) {
-//                String hex = Integer.toHexString(0xFF & bytes[i]);
-//                if (hex.length() == 1) {
-//                    sb.append('0');
-//                }
-//                sb.append(hex);
-//            }
-//            return sb.toString();
-//        }
-
         return Lyrics;
     }
 }
