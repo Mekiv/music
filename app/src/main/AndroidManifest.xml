@@ -28,7 +28,7 @@
             android:enabled="true"
             android:exported="true" />
 
-        <activity android:name=".module.lyric.LyricActivity"></activity>
+        <activity android:name=".module.lyric.LyricActivity" />
     </application>
 
 </manifest>

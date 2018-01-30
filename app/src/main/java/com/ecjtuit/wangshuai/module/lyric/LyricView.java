@@ -1,6 +1,6 @@
-         package com.ecjtuit.wangshuai.module.lyric;
+package com.ecjtuit.wangshuai.module.lyric;
 
-         import android.content.Context;
+import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.os.Handler;
@@ -25,7 +25,7 @@ import java.util.List;
 
 public class LyricView extends View {
     /**所有的歌词***/
-    private List<Lyric> mLyrics;
+    private List<Lyric> mLyrics=null;
 
     /**画高亮歌词的画笔***/
     private TextPaint mPaintForHighLightLrc;

@@ -8,10 +8,11 @@ import android.os.IBinder;
 import android.util.Log;
 
 import com.ecjtuit.wangshuai.MainActivity;
+import com.ecjtuit.wangshuai.data.Music;
 
 public class MusicPlayService extends Service implements MediaPlayer.OnCompletionListener,MediaPlayer.OnErrorListener,MediaPlayer.OnPreparedListener {
     public static MediaPlayer mediaPlayer = new MediaPlayer();
-
+    public static Music playingMusic;
     private static final int STATE_IDLE = 0;
     private static final int STATE_PREPARING = 1;
     private static final int STATE_PLAYING = 2;
@@ -94,9 +95,9 @@ public class MusicPlayService extends Service implements MediaPlayer.OnCompletio
             mediaPlayer.pause();
             MainActivity.barPlay.setImageResource(android.R.drawable.ic_media_play);
         }
-        MainActivity.barImage.setImageBitmap(MainActivity.musicList.get(MainActivity.musicIndex).getThumbBitmap());
-        MainActivity.barMusicName.setText(MainActivity.musicList.get(MainActivity.musicIndex).getTitle());
-        MainActivity.barMusicArtist.setText(MainActivity.musicList.get(MainActivity.musicIndex).getArtist());
+        MainActivity.barImage.setImageBitmap(MusicPlayService.playingMusic.getThumbBitmap());
+        MainActivity.barMusicName.setText(MusicPlayService.playingMusic.getTitle());
+        MainActivity.barMusicArtist.setText(MusicPlayService.playingMusic.getArtist());
     }
 
     public void next(){
@@ -115,7 +116,8 @@ public class MusicPlayService extends Service implements MediaPlayer.OnCompletio
     }
     public void playPrepare(){
         mediaPlayer.reset();
-        mediaPlayer = MusicPlay(MainActivity.musicList.get(MainActivity.musicIndex).getUrl());
+        MusicPlayService.playingMusic = MainActivity.musicList.get(MainActivity.musicIndex);
+        mediaPlayer = MusicPlay(MusicPlayService.playingMusic .getUrl());
         play();
     }
     public void  stop(){

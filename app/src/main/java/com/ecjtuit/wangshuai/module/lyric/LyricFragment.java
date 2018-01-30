@@ -15,7 +15,7 @@ import java.util.List;
 
 import io.reactivex.disposables.Disposable;
 /**
- * 歌词界面Fragment
+ * Created by Mekiv on 2018/1/25.
  */
 public class LyricFragment extends Fragment {
     private Music mInfo=MainActivity.musicList.get(MainActivity.musicIndex);
