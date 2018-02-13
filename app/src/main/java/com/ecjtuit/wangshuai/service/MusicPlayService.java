@@ -1,10 +1,13 @@
 package com.ecjtuit.wangshuai.service;
 
+import android.app.Notification;
 import android.app.Service;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
 import android.media.MediaPlayer;
 import android.os.Binder;
 import android.os.IBinder;
+import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
 import com.ecjtuit.wangshuai.MainActivity;
@@ -31,7 +34,10 @@ public class MusicPlayService extends Service implements MediaPlayer.OnCompletio
         mediaPlayer.setOnCompletionListener(this);
         mediaPlayer.setOnErrorListener(this);
         mediaPlayer.setOnPreparedListener(this);
-        mediaPlayer = MusicPlay(MainActivity.musicList.get(MainActivity.musicIndex).getUrl());
+        Notification notification= new NotificationCompat.Builder(this)
+                .setContentTitle("Title")
+                .build();
+        startForeground(1,notification);
     }
 
     @Override
@@ -90,14 +96,14 @@ public class MusicPlayService extends Service implements MediaPlayer.OnCompletio
     public void play(){
         if (!mediaPlayer.isPlaying()){
             mediaPlayer.start();
-            MainActivity.barPlay.setImageResource(android.R.drawable.ic_media_pause);
+            MainActivity.mPlayBarButtonPlay.setImageResource(android.R.drawable.ic_media_pause);
         }else {
             mediaPlayer.pause();
-            MainActivity.barPlay.setImageResource(android.R.drawable.ic_media_play);
+            MainActivity.mPlayBarButtonPlay.setImageResource(android.R.drawable.ic_media_play);
         }
-        MainActivity.barImage.setImageBitmap(MusicPlayService.playingMusic.getThumbBitmap());
-        MainActivity.barMusicName.setText(MusicPlayService.playingMusic.getTitle());
-        MainActivity.barMusicArtist.setText(MusicPlayService.playingMusic.getArtist());
+        MainActivity.mPlayBarImage.setImageBitmap(BitmapFactory.decodeByteArray(MusicPlayService.playingMusic.getThumbBitmap(),0,MusicPlayService.playingMusic.getThumbBitmap().length));
+        MainActivity.mPlayBarMusicName.setText(MusicPlayService.playingMusic.getTitle());
+        MainActivity.mPlayBarMusicArtist.setText(MusicPlayService.playingMusic.getArtist());
     }
 
     public void next(){

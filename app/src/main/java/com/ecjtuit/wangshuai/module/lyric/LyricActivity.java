@@ -43,4 +43,17 @@ public class LyricActivity extends AppCompatActivity {
             lyricView.setLyrics(searchLyric.getCombine());
         }
     }
+
+//    @Override
+//    public boolean onKeyDown(int keyCode, KeyEvent event)
+//    {
+//        if(keyCode == KeyEvent.KEYCODE_BACK){
+//            Intent myIntent = new Intent();
+//            myIntent = new Intent(this, MainActivity.class);
+//            startActivity(myIntent);
+//            this.finish();
+//        }
+//        return super.onKeyDown(keyCode, event);
+//    }
+
 }

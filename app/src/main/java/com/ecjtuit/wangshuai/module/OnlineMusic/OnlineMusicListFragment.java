@@ -18,6 +18,7 @@ import com.ecjtuit.wangshuai.data.Music;
 import com.ecjtuit.wangshuai.service.MusicPlayService;
 import com.ecjtuit.wangshuai.util.ItemClickListener;
 
+import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -103,7 +104,7 @@ public class OnlineMusicListFragment extends Fragment  {
             super.onPostExecute(aBoolean);
             MusicPlayService.mediaPlayer.reset();
             MusicPlayService.mediaPlayer = MusicPlayService.MusicPlay(url);
-            music.setThumbBitmap(bitmap);
+            music.setThumbBitmap(img(bitmap));
             new MusicPlayService().play();
         }
     }
@@ -159,5 +160,11 @@ public class OnlineMusicListFragment extends Fragment  {
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         InputStream is = conn.getInputStream();
         return BitmapFactory.decodeStream(is);
+    }
+
+    private byte[] img(Bitmap bitmap){
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
+        return baos.toByteArray();
     }
 }

@@ -13,6 +13,7 @@ import com.ecjtuit.wangshuai.R;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,15 +50,14 @@ public class GetMusicInfos {
                     mp3Info.setDuration(duration);
                     mp3Info.setSize(size);
                     mp3Info.setUrl(url);
-                    mp3Info.setThumbBitmap(getAlbumArt(albumId,context));
+                    mp3Info.setThumbBitmap(img(getAlbumArt(albumId,context)));
                     mp3Info.setAlbum(album);
-                    mp3Info.save();
                     mp3Infos.add(mp3Info);
                 }
             }
         }
         cursor.close();
-        save(context,mp3Infos);
+//        save(context,mp3Infos);
         return mp3Infos;
     }
 
@@ -100,5 +100,11 @@ public class GetMusicInfos {
             return list;
         }
         return null;
+    }
+
+    private byte[] img(Bitmap bitmap){
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
+        return baos.toByteArray();
     }
 }

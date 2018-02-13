@@ -1,5 +1,6 @@
 package com.ecjtuit.wangshuai.adapter;
 
+import android.graphics.BitmapFactory;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -47,7 +48,7 @@ public class MusicListAdapter extends RecyclerView.Adapter<MusicListAdapter.View
         Music music = mMusicList.get(position);
 
         holder.musicName.setText(music.getTitle());
-        holder.musicImage.setImageBitmap(music.getThumbBitmap());
+        holder.musicImage.setImageBitmap(BitmapFactory.decodeByteArray(music.getThumbBitmap(),0,music.getThumbBitmap().length));
         holder.artistName.setText(music.getArtist()+" - "+music.getAlbum());
     }
     @Override

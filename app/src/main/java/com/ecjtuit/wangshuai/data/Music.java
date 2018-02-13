@@ -1,7 +1,5 @@
 package com.ecjtuit.wangshuai.data;
 
-import android.graphics.Bitmap;
-
 import org.litepal.crud.DataSupport;
 
 import java.io.Serializable;
@@ -20,13 +18,13 @@ public class Music extends DataSupport implements Serializable {
     private int isMusic;
     private long duration;
     private String album;
-    private Bitmap thumbBitmap;
+    private byte[] thumbBitmap;
 
-    public Bitmap getThumbBitmap() {
+    public byte[] getThumbBitmap() {
         return thumbBitmap;
     }
 
-    public void setThumbBitmap(Bitmap thumbBitmap) {
+    public void setThumbBitmap(byte[] thumbBitmap) {
         this.thumbBitmap = thumbBitmap;
     }
 
